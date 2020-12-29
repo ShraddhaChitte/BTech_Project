@@ -1,0 +1,141 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+<style>
+  a{
+    color: white;
+  }
+  a:hover{
+    color: grey;
+  }
+  /*Modal*/
+h4 {
+  font-weight: bold;
+  color: #fff;
+}
+.close {
+  color: #fff;
+  transform: scale(1.2)
+}
+.modal-content {
+  font-weight: bold;
+  background: linear-gradient(to bottom right,black, grey);
+}
+.form-control {
+  margin: 1em 0;
+}
+.form-control:hover, .form-control:focus {
+  box-shadow: none;  
+  border-color: #fff;
+}
+.username, .password {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  border-bottom: 2px solid #eee;
+  padding-left: 0;
+  font-weight: normal;
+  background: transparent;  
+}
+.form-control::-webkit-input-placeholder {
+  color: #eee;  
+}
+.form-control:focus::-webkit-input-placeholder {
+  font-weight: bold;
+  color: #fff;
+}
+.login {
+  padding: 6px 20px;
+  border-radius: 20px;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  font-weight: bold;
+  transition: all .5s;
+  margin-top: 1em;
+}
+.login:hover {
+  background: lightgrey;
+  color: #fff;
+}
+  .modal-header { 
+   border-bottom: none;
+  }
+  .modal-title {
+  color:#000;
+  }
+  .modal-footer{
+  display:none;  
+  }
+  
+</style>
+
+<nav class="navbar navbar-expand-lg" style="background-color: black; color: white; ">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'project_index' %}">Fake News Detector</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'project_index' %}">HOME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ABOUT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-target="#signup" data-toggle="modal">SIGN UP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-target="#login" data-toggle="modal">LOGIN</a>
+            </li>
+          </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    {% block page_content %}{% endblock %}
+</div>
+
+<div id="login" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="width: 435px;
+    margin-top: 190px;">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4 style="text-align: center;">LOGIN</h4>
+        <form>
+          <input type="text" name="username" class="username form-control" placeholder="USERNAME"/>
+          <input type="password" name="password" class="password form-control" placeholder="PASSWORD"/>
+          <input class="btn login" type="submit" value="LOGIN" style="margin-left: 38%" />
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+<div id="signup" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="width: 435px;
+    margin-top: 190px;">
+    
+    <div class="modal-content">
+      <div class="modal-body">
+        <button data-dismiss="modal" class="close">&times;</button>
+        <h4 style="text-align: center;">SIGN UP</h4>
+        <form>
+          <input type="text" name="name" class="username form-control" placeholder="NAME"/>
+          <input type="text" name="country" class="username form-control" placeholder="COUNTRY"/>
+          <input type="text" name="profession" class="username form-control" placeholder="PROFESSION"/>
+          <input type="text" name="username" class="username form-control" placeholder="USERNAME"/>
+          <input type="password" name="password" class="password form-control" placeholder="PASSWORD"/>
+          <input class="btn login" type="submit" value="SIGN UP" style="margin-left: 38%" />
+        </form>
+      </div>
+    </div>
+  </div>  
+</div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
